@@ -1,0 +1,230 @@
+/* Aplicar Times New Roman a todo el documento como solicitaste */
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Paleta de colores basada en la imagen */
+:root {
+    --gold: #b8976b;
+    --dark-bg: #1a1b1f;
+    --dark-card: #2a2c31;
+}
+
+.text-gold {
+    color: var(--gold) !important;
+}
+
+.bg-gold {
+    background-color: var(--gold) !important;
+}
+
+.bg-dark-custom {
+    background-color: var(--dark-bg) !important;
+}
+
+.border-gold {
+    border-left: 5px solid var(--gold) !important;
+}
+
+/* Hero Section con imagen de fondo oscura */
+.hero-section {
+    min-height: 80vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1505664177941-a0f12c140c11?auto=format&fit=crop&q=80&w=1920') center/cover no-repeat;
+    margin-top: 56px; /* Compensar navbar */
+}
+
+/* Interactividad y Hover Effects */
+.hover-zoom {
+    transition: transform 0.3s ease;
+}
+.hover-zoom:hover {
+    transform: scale(1.02);
+}
+
+.example-box {
+    background-color: var(--dark-card);
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    border: 1px solid #444;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.example-box:hover {
+    background-color: var(--gold);
+    color: white;
+    transform: translateY(-5px);
+}
+
+.info-card {
+    transition: all 0.3s ease;
+    background-color: var(--dark-card);
+    border-radius: 8px;
+}
+.info-card:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    border-color: var(--gold) !important;
+    transform: translateY(-5px);
+}
+
+/* Estilos de Acordeón Bootstrap Modificados */
+.accordion-button {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+.accordion-button:not(.collapsed) {
+    background-color: #f1ebd8;
+    color: #1a1b1f;
+}
+
+/* Sección de Procedimiento (Pasos) */
+.step-box {
+    background: white;
+    border: 2px solid var(--gold);
+    border-radius: 10px;
+    padding: 20px 10px;
+    width: 150px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+.step-box:hover {
+    transform: scale(1.05);
+}
+.step-number {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--gold);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px auto;
+}
+
+/* Tarjetas del Equipo */
+.team-card {
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+.team-card:hover {
+    transform: translateY(-10px);
+}
+.team-card img {
+    height: 300px;
+    object-fit: cover;
+}
+
+/* Animaciones de aparición (controladas por JS) */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- HEADER MEJORADO --- */
+
+/* Efecto Parallax en el fondo */
+.hero-section {
+    min-height: 95vh; /* Lo hace un poco más alto para que luzca imponente */
+    background: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&q=80&w=1920') center/cover no-repeat fixed; /* El 'fixed' hace el parallax */
+    position: relative;
+}
+
+/* Capa oscura sobre la imagen */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(26,27,31,0.85) 0%, rgba(26,27,31,0.5) 100%);
+    z-index: 1;
+}
+
+.z-index-2 {
+    z-index: 2;
+}
+
+/* Tarjeta tipo "Glassmorphism" (Efecto vidrio elegante) */
+.glass-card {
+    background: rgba(255, 255, 255, 0.05); /* Blanco muy transparente */
+    backdrop-filter: blur(12px); /* Desenfoca el fondo */
+    -webkit-backdrop-filter: blur(12px); /* Soporte para Safari */
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Borde sutil */
+    border-radius: 20px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-8px); /* Flota un poco al pasar el mouse */
+    box-shadow: 0 20px 40px rgba(184, 151, 107, 0.25) !important; /* Sombra dorada suave */
+}
+
+.text-shadow {
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+}
+
+/* Botones interactivos */
+.btn-gold {
+    background-color: var(--gold);
+    color: #1a1b1f;
+    font-weight: bold;
+    border: 2px solid var(--gold);
+    transition: all 0.3s ease;
+}
+
+.btn-gold:hover {
+    background-color: rgba(0,0,0,0.8);
+    color: var(--gold);
+    transform: scale(1.05); /* Se agranda un 5% */
+}
+
+.btn-outline-light {
+    border: 2px solid white;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+    background-color: white;
+    color: #1a1b1f;
+    transform: scale(1.05);
+}
+
+/* Animación de rebote para el indicador de scroll */
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.scroll-indicator:hover {
+    opacity: 1;
+}
+
+.letter-spacing {
+    letter-spacing: 3px;
+}
+
+.bounce {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-15px); }
+    60% { transform: translateY(-7px); }
+}
