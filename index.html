@@ -29,13 +29,14 @@
     <meta name="apple-mobile-web-app-title" content="UDLA" />
     <link rel="manifest" href="favicon/site.webmanifest" />
 </head>
-<body>
+<body class="bg-dark-custom">
 
     <!-- Navegación -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark-custom fixed-top shadow-sm">
         <div class="container">
-            <a class="navbar-brand text-gold fw-bold" href="#">
-                <i class="fa-solid fa-scale-balanced me-2"></i>Garantías Jurisdiccionales
+            <a class="navbar-brand text-gold fw-bold d-flex align-items-center" href="#">
+                <img src="udla.jpg" alt="Logo UDLA" width="45" height="45" class="me-2 rounded-circle object-fit-cover">
+                Garantías Jurisdiccionales
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -84,7 +85,7 @@
     </header>
 
     <!-- Objeto o Derecho Protegido -->
-    <section id="derecho" class="py-5 bg-dark-custom text-white border-top border-secondary">
+    <section id="derecho" class="py-5 bg-dark-custom text-white">
         <div class="container py-5 fade-in">
             <div class="text-center mb-5">
                 <h2 class="text-white fw-bold">Objeto y Derecho Protegido</h2>
@@ -137,7 +138,7 @@
     </section>
 
     <!-- Procedimiento (Línea de Tiempo Interactiva) -->
-    <section id="procedimiento" class="py-5 bg-dark-custom text-white border-top border-secondary">
+    <section id="procedimiento" class="py-5 bg-dark-custom text-white">
         <div class="container py-5 fade-in">
             <div class="text-center mb-5">
                 <h2 class="text-gold fw-bold">Procedimiento</h2>
@@ -194,34 +195,32 @@
     </section>
 
     <!-- Admisibilidad e Improcedencia (Tarjetas Verdes y Rojas) -->
-    <section id="causales" class="py-5 bg-light">
+    <section id="causales" class="py-5 bg-dark-custom">
         <div class="container py-5 fade-in">
-            <div class="row">
-                <!-- Admisibilidad -->
-                <div class="col-lg-6 mb-4">
+            <div class="row align-items-stretch">
+                <div class="col-lg-6 mb-4 d-flex flex-column">
                     <h3 class="text-success mb-4 text-center"><i class="fa-solid fa-circle-check me-2"></i>Causales de Admisibilidad</h3>
-                    <div class="card border-0 shadow-sm border-start border-success border-5 mb-3 hover-zoom">
+                    <div class="card border-0 shadow-sm border-start border-success border-5 hover-zoom h-100 w-100">
                         <div class="card-body">
                             <ul class="list-unstyled mb-0">
-                                <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i>Existe una solicitud de información previa.</li>
-                                <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i>La información solicitada tiene carácter público.</li>
-                                <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i>Se ha negado injustificadamente el acceso.</li>
-                                <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i>La entidad no ha respondido dentro del plazo legal.</li>
+                                <li class="mb-3"><i class="fa-solid fa-check text-success me-2"></i>Existe una solicitud de información previa.</li>
+                                <li class="mb-3"><i class="fa-solid fa-check text-success me-2"></i>La información solicitada tiene carácter público.</li>
+                                <li class="mb-3"><i class="fa-solid fa-check text-success me-2"></i>Se ha negado injustificadamente el acceso.</li>
+                                <li class="mb-3"><i class="fa-solid fa-check text-success me-2"></i>La entidad no ha respondido dentro del plazo legal.</li>
                                 <li><i class="fa-solid fa-check text-success me-2"></i>La información entregada es incompleta o alterada.</li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <!-- Improcedencia -->
-                <div class="col-lg-6 mb-4">
+                <div class="col-lg-6 mb-4 d-flex flex-column">
                     <h3 class="text-danger mb-4 text-center"><i class="fa-solid fa-circle-xmark me-2"></i>Causales de Improcedencia</h3>
-                    <div class="card border-0 shadow-sm border-start border-danger border-5 mb-3 hover-zoom">
+                    <div class="card border-0 shadow-sm border-start border-danger border-5 hover-zoom h-100 w-100">
                         <div class="card-body">
                             <ul class="list-unstyled mb-0">
-                                <li class="mb-2"><i class="fa-solid fa-xmark text-danger me-2"></i>La información es reservada conforme a la Constitución y la ley.</li>
-                                <li class="mb-2"><i class="fa-solid fa-xmark text-danger me-2"></i>Es información confidencial que afecta derechos de terceros.</li>
-                                <li class="mb-2"><i class="fa-solid fa-xmark text-danger me-2"></i>La información no existe en los archivos de la institución.</li>
-                                <li><i class="fa-solid fa-xmark text-danger me-2"></i>Se utiliza la acción para fines distintos a la protección del derecho.</li>
+                                <li class="mb-3"><i class="fa-solid fa-xmark text-danger me-2"></i>La información es reservada conforme a la Constitución y la ley.</li>
+                                <li class="mb-3"><i class="fa-solid fa-xmark text-danger me-2"></i>Es información confidencial que afecta derechos de terceros.</li>
+                                <li class="mb-3"><i class="fa-solid fa-xmark text-danger me-2"></i>La información no existe en los archivos de la institución.</li>
+                                <li><i class="fa-solid fa-xmark text-danger me-2"></i>Se utiliza la acción para fines distintos a la protección del derecho de acceso a la información pública.</li>
                             </ul>
                         </div>
                     </div>
@@ -260,36 +259,36 @@
     </section>
 
     <!-- Conclusión e Importancia (Infografía) -->
-    <section id="conclusion" class="py-5 bg-light">
+    <section id="conclusion" class="py-5 bg-dark-custom">
         <div class="container py-5 fade-in">
             <div class="text-center mb-5">
-                <h2 class="text-dark fw-bold">Importancia de esta Garantía</h2>
-                <p class="lead text-muted">¿Por qué es vital para nuestro país?</p>
+                <h2 class="text-white fw-bold">Importancia de esta Garantía</h2>
+                <p class="lead text-white">¿Por qué es vital para nuestro país?</p>
             </div>
             
             <div class="row text-center mb-5 g-4">
                 <div class="col-md">
                     <div class="p-3">
                         <i class="fa-solid fa-handcuffs fa-2x text-gold mb-2"></i>
-                        <h6>Combatir la corrupción</h6>
+                        <div class="text-white mt-2"><h6>Combatir la corrupción</h6></div>
                     </div>
                 </div>
                 <div class="col-md">
                     <div class="p-3">
                         <i class="fa-solid fa-check-to-slot fa-2x text-gold mb-2"></i>
-                        <h6>Fortalecer la democracia</h6>
+                        <div class="text-white mt-2"><h6>Fortalecer la democracia</h6></div>
                     </div>
                 </div>
                 <div class="col-md">
                     <div class="p-3">
                         <i class="fa-solid fa-eye fa-2x text-gold mb-2"></i>
-                        <h6>Transparencia estatal</h6>
+                        <div class="text-white mt-2"><h6>Transparencia estatal</h6></div>
                     </div>
                 </div>
                 <div class="col-md">
                     <div class="p-3">
                         <i class="fa-solid fa-users fa-2x text-gold mb-2"></i>
-                        <h6>Control ciudadano</h6>
+                        <div class="text-white mt-2"><h6>Control ciudadano</h6></div>
                     </div>
                 </div>
             </div>
@@ -306,7 +305,7 @@
     </section>
 
     <!-- Equipo de Trabajo (Las 3 dueñas de la tarea) -->
-    <section id="equipo" class="py-5 bg-dark-custom border-top border-secondary">
+    <section id="equipo" class="py-5 bg-dark-custom text-white">
         <div class="container py-5 fade-in">
             <div class="text-center mb-5">
                 <h2 class="text-gold fw-bold">Nuestro Equipo de Trabajo</h2>
@@ -327,7 +326,7 @@
                     <div class="card team-card border-0 shadow text-center pb-3">
                         <img src="" class="card-img-top" alt="Estudiante 2">
                         <div class="card-body bg-dark text-white">
-                            <h5 class="card-title text-gold mb-0">Nombre Apellido</h5>
+                            <h5 class="card-title text-gold mb-0">Allison Balseca</h5>
                             <p class="card-text small mt-1">Estudiante de Derecho</p>
                         </div>
                     </div>
@@ -346,8 +345,8 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-4">
-        <p class="mb-0 small text-muted">© 2026 Proyecto Académico - Acción de Acceso a la Información Pública. Todos los derechos reservados.</p>
+    <footer class="bg-dark-custom text-center py-4">
+        <p class="mb-0 small text-white">© 2026 Proyecto Académico - Acción de Acceso a la Información Pública. Todos los derechos reservados.</p>
     </footer>
 
     <!-- Bootstrap Bundle JS -->
