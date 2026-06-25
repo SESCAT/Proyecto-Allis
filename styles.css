@@ -288,3 +288,139 @@ body {
 .border-5 {
     border-width: 5px !important;
 }
+
+
+
+/* --- CARRUSEL 3D DEL EQUIPO --- */
+.team-carousel-wrapper {
+    height: 480px; /* Altura del contenedor */
+    width: 100%;
+    max-width: 1000px;
+    perspective: 1000px; /* Le da el efecto de profundidad 3D a la sección */
+}
+
+.team-track {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Tarjeta Base */
+.team-card-3d {
+    width: 320px;
+    position: absolute;
+    /* La transición suave para cuando se mueven de posición */
+    transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1), 
+                opacity 0.6s ease, 
+                filter 0.6s ease, 
+                z-index 0.6s;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.team-card-3d img {
+    height: 320px;
+    object-fit: cover;
+}
+
+/* 1. Tarjeta Central (Activa, Iluminada, Grande) */
+.active-card {
+    z-index: 3;
+    transform: scale(1.15) translateX(0); /* Más grande y al centro */
+    opacity: 1;
+    filter: brightness(1.1); /* Ligeramente iluminada */
+    box-shadow: 0 20px 40px rgba(184, 151, 107, 0.5) !important; /* Resplandor dorado */
+}
+
+/* 2. Tarjeta Izquierda (Atrás, Pequeña, Oscura) */
+.prev-card {
+    z-index: 2;
+    transform: scale(0.85) translateX(-65%); /* Más pequeña y hacia la izquierda */
+    opacity: 0.6;
+    filter: brightness(0.3); /* Oscurecida */
+}
+
+/* 3. Tarjeta Derecha (Atrás, Pequeña, Oscura) */
+.next-card {
+    z-index: 2;
+    transform: scale(0.85) translateX(65%); /* Más pequeña y hacia la derecha */
+    opacity: 0.6;
+    filter: brightness(0.3); /* Oscurecida */
+}
+
+/* Botones Flechas de control */
+.carousel-control-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(184, 151, 107, 0.1);
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    z-index: 4;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-control-btn:hover {
+    background: var(--gold);
+    color: var(--dark-bg);
+    transform: translateY(-50%) scale(1.1); /* El botón crece un poquito al pasar el mouse */
+}
+
+.left-btn { left: 10px; }
+.right-btn { right: 10px; }
+
+/* Ajustes responsivos para celulares (Pantallas pequeñas) */
+@media (max-width: 768px) {
+    .team-carousel-wrapper { height: 400px; }
+    .team-card-3d { width: 220px; }
+    .team-card-3d img { height: 220px; }
+    /* En celulares juntamos más las tarjetas para que quepan */
+    .prev-card { transform: scale(0.8) translateX(-50%); }
+    .next-card { transform: scale(0.8) translateX(50%); }
+    .carousel-control-btn { width: 40px; height: 40px; font-size: 16px; }
+}
+
+
+
+/* --- CURSOR DE MARTILLO DE JUEZ --- */
+
+/* Ocultamos el cursor normal en toda la página de computadora */
+@media (min-width: 769px) {
+    body, a, button, .carousel-control-btn, .nav-link {
+        cursor: none !important; 
+    }
+}
+
+/* Estilos del martillo flotante */
+#gavel-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    pointer-events: none; /* IMPORTANTE: Para que no bloquee los clics reales a los botones */
+    z-index: 9999; /* Por encima de toda la página */
+    font-size: 28px;
+    color: var(--gold);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    transform: translate(-10%, -10%); /* Ajusta el punto de clic a la cabeza del martillo */
+    transform-origin: bottom right; /* El eje de rotación será el mango del martillo */
+    transition: transform 0.08s ease-out; /* Transición súper rápida para simular el golpe */
+}
+
+/* La clase que simula el golpe cuando haces clic */
+.gavel-hit {
+    transform: translate(-10%, -10%) rotate(-45deg) !important;
+}
+
+/* Ocultar este cursor especial en celulares (ya que allí se usa el dedo, no el mouse) */
+@media (max-width: 768px) {
+    #gavel-cursor {
+        display: none !important;
+    }
+}
