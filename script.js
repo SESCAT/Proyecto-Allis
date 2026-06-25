@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
-
-    // 1. EFECTO SCROLL SUAVE
+    
+    // 1. Efecto Scroll Suave para los enlaces de la navegación
     document.querySelectorAll('a.nav-link').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -9,26 +9,29 @@ document.addEventListener("DOMContentLoaded", function() {
             
             if (targetElement) {
                 window.scrollTo({
-                    top: targetElement.offsetTop - 70,
+                    top: targetElement.offsetTop - 70, // Ajuste por la barra de navegación fija
                     behavior: 'smooth'
                 });
             }
         });
     });
 
-    // 2. ANIMACIÓN FADE-IN AL BAJAR LA PÁGINA
+    // 2. Animación "Fade-In" al hacer scroll (Intersection Observer)
+    // Esto hace que los elementos aparezcan elegantemente al bajar la página
     const fadeElements = document.querySelectorAll('.fade-in');
 
     const appearOptions = {
-        threshold: 0.15,
+        threshold: 0.15, // El elemento aparece cuando el 15% es visible
         rootMargin: "0px 0px -50px 0px"
     };
 
     const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
+            if (!entry.isIntersecting) {
+                return;
+            } else {
                 entry.target.classList.add('visible');
-                appearOnScroll.unobserve(entry.target);
+                appearOnScroll.unobserve(entry.target); // Deja de observar una vez que ya apareció
             }
         });
     }, appearOptions);
@@ -37,55 +40,62 @@ document.addEventListener("DOMContentLoaded", function() {
         appearOnScroll.observe(element);
     });
 
-    // 3. CURSOR DE MARTILLO INTERACTIVO
-    const gavelCursor = document.getElementById('gavel-cursor');
-    
-    // Verificamos que el martillo exista en el HTML antes de moverlo
-    if (gavelCursor) {
-        document.addEventListener('mousemove', function(e) {
-            // Hacemos que siga al mouse
-            gavelCursor.style.left = e.clientX + 'px';
-            gavelCursor.style.top = e.clientY + 'px';
-        });
-
-        document.addEventListener('mousedown', function() {
-            // Golpea al hacer clic
-            gavelCursor.classList.add('gavel-hit');
-        });
-
-        document.addEventListener('mouseup', function() {
-            // Se levanta al soltar el clic
-            gavelCursor.classList.remove('gavel-hit');
-        });
-    }
-
 });
 
-// 4. LÓGICA DEL CARRUSEL 3D DEL EQUIPO
-// (Va fuera del DOMContentLoaded para que los botones HTML lo puedan encontrar)
+
+
+// --- LÓGICA DEL CARRUSEL 3D DEL EQUIPO ---
 function moveCarousel(direction) {
+    // Seleccionamos las 3 tarjetas
     const cards = document.querySelectorAll('.team-card-3d');
     
     let prev, active, next;
     
+    // Identificamos qué rol tiene cada tarjeta en este momento
     cards.forEach(card => {
         if(card.classList.contains('prev-card')) prev = card;
         if(card.classList.contains('active-card')) active = card;
         if(card.classList.contains('next-card')) next = card;
     });
 
-    // Seguridad por si falta alguna tarjeta
-    if (!prev || !active || !next) return;
-
+    // Removemos las clases actuales para "barajar" las posiciones
     cards.forEach(card => card.classList.remove('prev-card', 'active-card', 'next-card'));
 
+    // Asignamos las nuevas posiciones dependiendo del botón que se presionó
     if (direction === 'next') {
+        // Rotación hacia la derecha
         next.classList.add('active-card');
         active.classList.add('prev-card');
         prev.classList.add('next-card');
     } else if (direction === 'prev') {
+        // Rotación hacia la izquierda
         prev.classList.add('active-card');
         active.classList.add('next-card');
         next.classList.add('prev-card');
     }
 }
+
+
+
+
+// --- CURSOR DE MARTILLO INTERACTIVO ---
+const gavelCursor = document.getElementById('gavel-cursor');
+
+// 1. Hacer que el martillo siga la posición del mouse
+document.addEventListener('mousemove', function(e) {
+    // Evitar que el código se ejecute en celulares donde no hay elemento
+    if(gavelCursor.style.display !== 'none') {
+        gavelCursor.style.left = e.clientX + 'px';
+        gavelCursor.style.top = e.clientY + 'px';
+    }
+});
+
+// 2. Animar el golpe del martillo al presionar el clic
+document.addEventListener('mousedown', function() {
+    gavelCursor.classList.add('gavel-hit');
+});
+
+// 3. Levantar el martillo al soltar el clic
+document.addEventListener('mouseup', function() {
+    gavelCursor.classList.remove('gavel-hit');
+});
