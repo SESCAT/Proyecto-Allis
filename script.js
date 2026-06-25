@@ -74,28 +74,3 @@ function moveCarousel(direction) {
         next.classList.add('prev-card');
     }
 }
-
-
-
-
-// --- CURSOR DE MARTILLO INTERACTIVO ---
-const gavelCursor = document.getElementById('gavel-cursor');
-
-// 1. Hacer que el martillo siga la posición del mouse
-document.addEventListener('mousemove', function(e) {
-    // Evitar que el código se ejecute en celulares donde no hay elemento
-    if(gavelCursor.style.display !== 'none') {
-        gavelCursor.style.left = e.clientX + 'px';
-        gavelCursor.style.top = e.clientY + 'px';
-    }
-});
-
-// 2. Animar el golpe del martillo al presionar el clic
-document.addEventListener('mousedown', function() {
-    gavelCursor.classList.add('gavel-hit');
-});
-
-// 3. Levantar el martillo al soltar el clic
-document.addEventListener('mouseup', function() {
-    gavelCursor.classList.remove('gavel-hit');
-});
